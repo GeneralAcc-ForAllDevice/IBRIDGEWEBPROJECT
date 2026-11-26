@@ -1,0 +1,450 @@
+.tech-navbar,
+.tech-navbar * {
+  box-sizing: border-box;
+}
+
+.tech-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background-color: #050814;
+  border-bottom: 2px solid #0369a1;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.85);
+  font-family: 'Outfit', 'Segoe UI', sans-serif;
+}
+
+/* Top Info Strip */
+.tech-top-strip {
+  background: linear-gradient(90deg, #020617, #0c1938, #020617);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+  padding: 5px 5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 800;
+  color: #38bdf8;
+}
+
+.strip-phone {
+  color: #00ff88;
+}
+
+/* Main Top Bar */
+.tech-nav-main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.tech-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.tech-hamburger-btn {
+  display: none;
+  background: #0f172a;
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  color: #38bdf8;
+  font-size: 20px;
+  padding: 6px 11px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.tech-brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.tech-brand-logo img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  filter: invert(1) hue-rotate(180deg) brightness(1.3);
+  mix-blend-mode: screen;
+}
+
+.tech-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-main {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.brand-sub {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  font-weight: 800;
+  color: #00ff88;
+  letter-spacing: 1.2px;
+}
+
+/* Center Search Form (Tech Ace Style) */
+.tech-search-form {
+  flex: 1;
+  max-width: 540px;
+  display: flex;
+  align-items: center;
+  background-color: #0b1120;
+  border: 1.5px solid rgba(56, 189, 248, 0.4);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tech-search-form:focus-within {
+  border-color: #00ff88;
+  box-shadow: 0 0 14px rgba(0, 255, 136, 0.25);
+}
+
+.tech-search-input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 14px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #f8fafc;
+  font-size: 14px;
+}
+
+.tech-search-input::placeholder {
+  color: #64748b;
+}
+
+.tech-search-clear {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  padding: 0 8px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.tech-search-submit {
+  padding: 10px 16px;
+  border: none;
+  background: linear-gradient(180deg, #38bdf8, #0284c7);
+  color: #020617;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* Right Cart & Account */
+.tech-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.tech-icon-btn {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background-color: #0f172a;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  text-decoration: none;
+}
+
+.tech-badge-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: #00ff88;
+  color: #020617;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 900;
+  padding: 2px 6px;
+  border-radius: 50px;
+}
+
+.tech-signin-btn {
+  padding: 10px 18px;
+  border-radius: 12px;
+  border: 1px solid #6ee7b7;
+  border-bottom: 3px solid #065f46;
+  background: linear-gradient(180deg, #00ff88, #059669);
+  color: #020617;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.tech-profile-menu {
+  position: relative;
+}
+
+.tech-profile-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border-radius: 12px;
+  background-color: #0f172a;
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  color: #f8fafc;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.profile-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #00ff88;
+}
+
+.tech-profile-dropdown {
+  position: absolute;
+  top: 115%;
+  right: 0;
+  width: 190px;
+  background-color: #090d1c;
+  border: 1px solid #38bdf8;
+  border-radius: 12px;
+  padding: 6px;
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.9);
+  z-index: 100;
+}
+
+.tech-profile-menu:hover .tech-profile-dropdown {
+  display: flex;
+}
+
+.tech-profile-dropdown button {
+  background: none;
+  border: none;
+  color: #e2e8f0;
+  padding: 9px 12px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.tech-profile-dropdown button:hover {
+  background-color: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+}
+
+.tech-profile-dropdown .logout-item {
+  color: #fb7185;
+}
+
+/* Bottom Tier Navigation Bar */
+.tech-nav-bottom {
+  background-color: #090e1f;
+  border-top: 1px solid rgba(56, 189, 248, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 20px;
+}
+
+.tech-nav-link {
+  background: none;
+  border: none;
+  text-decoration: none;
+  color: #cbd5e1;
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  padding: 8px 14px;
+  border-radius: 9px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tech-nav-link:hover,
+.tech-nav-link.active {
+  background-color: rgba(56, 189, 248, 0.15);
+  color: #00ff88;
+}
+
+.chat-unread-pill {
+  background-color: #ef4444;
+  color: #ffffff;
+  font-size: 10.5px;
+  padding: 1px 6px;
+  border-radius: 10px;
+}
+
+/* Mobile Slide-Out Drawer */
+.tech-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(2, 6, 23, 0.82);
+  z-index: 9999;
+  display: flex;
+}
+
+.tech-drawer-panel {
+  width: 270px;
+  max-width: 80vw;
+  height: 100%;
+  background-color: #090d1c;
+  border-right: 1.5px solid #38bdf8;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.tech-drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+  font-weight: 900;
+  color: #38bdf8;
+  letter-spacing: 1px;
+}
+
+.tech-drawer-close {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.tech-drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tech-drawer-links a,
+.tech-drawer-links button {
+  background: #0f172a;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  color: #f1f5f9;
+  text-decoration: none;
+  padding: 11px 14px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.drawer-logout-btn {
+  color: #fb7185 !important;
+  border-color: rgba(244, 63, 94, 0.4) !important;
+  margin-top: 8px;
+}
+
+/* =========================================
+   ဖုန်း (Mobile View) Responsive
+   ========================================= */
+/* =========================================
+   ဖုန်း (Mobile View) - Navigation Bar အပြည့်အစုံ ပေါ်စေရန်
+   ========================================= */
+@media (max-width: 850px) {
+  .tech-top-strip {
+    display: none;
+  }
+
+  .tech-hamburger-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tech-nav-main {
+    flex-wrap: wrap;
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .tech-brand-logo img {
+    width: 34px;
+    height: 34px;
+  }
+
+  .brand-main {
+    font-size: 16px;
+  }
+
+  .brand-sub {
+    font-size: 8.5px;
+  }
+
+  /* ဖုန်းတွင် Search Bar ကို ဒုတိယတန်း အကျယ်အပြည့် နေရာချပေးခြင်း */
+  .tech-search-form {
+    order: 3;
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+  .tech-search-input {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+
+  .profile-name-label {
+    max-width: 70px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* ဖုန်းထဲတွင် Navigation Links Bar ကို ဘေးတိုက်ပွတ်ဆွဲ (Swipe) ၍ ရွေးချယ်နိုင်အောင် ပြသခြင်း */
+  .tech-nav-bottom {
+    display: flex !important;
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 6px 12px;
+    gap: 6px;
+    white-space: nowrap;
+  }
+
+  .tech-nav-bottom::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tech-nav-link {
+    flex-shrink: 0;
+    font-size: 11.5px !important;
+    padding: 6px 11px !important;
+  }
+}

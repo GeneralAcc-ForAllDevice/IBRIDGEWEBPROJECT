@@ -1,0 +1,414 @@
+/* =========================================================
+   3D MOTION COSMIC ASTROLOGY & SPACE PRODUCT CARD (OPTIMIZED)
+   ========================================================= */
+.food-item {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  border-radius: 22px;
+  /* Blur ကိုဖြုတ်ပြီး Solid Gradient သုံးထားသဖြင့် GPU ဝန်ပေါ့ပြီး လက်လက်မဖြစ်တော့ပါ */
+  background: linear-gradient(
+    160deg,
+    #180e36 0%,
+    #090518 60%,
+    #03020c 100%
+  );
+
+  /* 3D Celestial Gold & Cosmic Purple Bevel Borders */
+  border-top: 1.5px solid rgba(251, 191, 36, 0.65);
+  border-left: 1px solid rgba(192, 132, 252, 0.35);
+  border-right: 1px solid rgba(56, 189, 248, 0.35);
+  border-bottom: 5px solid #6b21a8;
+
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.85),
+    0 0 20px rgba(168, 85, 247, 0.2);
+
+  /* GPU Acceleration အတွက် မရှိမဖြစ်ထည့်ရန် */
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  font-family: 'Outfit', 'Segoe UI', sans-serif;
+
+  animation: cosmicFloat 5.5s ease-in-out infinite;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.food-item:nth-child(even) {
+  animation-delay: 1.4s;
+}
+.food-item:nth-child(3n) {
+  animation-delay: 2.8s;
+}
+
+/* Spinning Zodiac Orbit */
+.food-item::before {
+  content: "";
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  border: 1px dashed rgba(251, 191, 36, 0.25);
+  transform: translate3d(-50%, -50%, 0);
+  will-change: transform;
+  animation: astroOrbitSpin 22s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Desktop Hover Effect (Touch ဖုန်းများတွင် ကပ်မနေစေရန် @media hover ထဲထည့်ထားသည်) */
+@media (hover: hover) {
+  .food-item:hover {
+    animation-play-state: paused;
+    transform: translate3d(0, -10px, 0) scale(1.02);
+    border-top-color: #fde047;
+    border-bottom-color: #ec4899;
+    box-shadow: 
+      0 25px 45px rgba(0, 0, 0, 0.95),
+      0 0 30px rgba(251, 191, 36, 0.35);
+  }
+
+  .food-item:hover .food-item-image {
+    transform: scale(1.07);
+  }
+
+  .food-item:hover .food-item-name-rating p {
+    color: #fde047;
+    text-shadow: 0 0 12px rgba(253, 224, 71, 0.5);
+  }
+}
+
+/* ပုံထည့်ထားသော 3D Astral Display Frame */
+.food-item-img-container {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background-color: #050214;
+  border-bottom: 1.5px solid rgba(251, 191, 36, 0.35);
+}
+
+.food-item-img-container::before {
+  content: "✦ ASTRAL_ITEM";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 3;
+  font-family: 'Courier New', monospace;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  color: #fde047;
+  background: rgba(15, 7, 38, 0.9);
+  border: 1px solid rgba(251, 191, 36, 0.55);
+  padding: 3px 9px;
+  border-radius: 8px;
+}
+
+/* ကြယ်တံခွန် အလင်းတန်း (left အစား translateX သုံးထားသဖြင့် လုံးဝမထစ်တော့ပါ) */
+.food-item-img-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(253, 224, 71, 0.22),
+    rgba(192, 132, 252, 0.25),
+    transparent
+  );
+  will-change: transform;
+  animation: cosmicSweep 5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.food-item-image {
+  width: 100%;
+  height: 195px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+/* Add to Cart (+) Button */
+.food-item-img-container .add {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  z-index: 4;
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 5px;
+  background: linear-gradient(145deg, #1e1042, #090518);
+  border: 1.5px solid #fbbf24;
+  border-bottom: 3px solid #b45309;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.8);
+  transition: transform 0.2s ease;
+}
+
+.food-item-img-container .add:active {
+  transform: scale(0.92);
+}
+
+/* Cosmic Counter (+ / -) Box */
+.food-item-counter {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 10px;
+  border-radius: 14px;
+  background: #0f0726;
+  border: 1.5px solid #c084fc;
+  border-bottom: 3px solid #6b21a8;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.85);
+}
+
+.food-item-counter img {
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.15s ease;
+}
+
+.food-item-counter img:active {
+  transform: scale(0.9);
+}
+
+.food-item-counter p {
+  margin: 0;
+  font-weight: 800;
+  font-size: 14.5px;
+  color: #fde047;
+}
+
+/* Info Section */
+.food-item-info {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.food-item-name-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.food-item-name-rating p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: #faf5ff;
+  letter-spacing: 0.4px;
+  transition: color 0.25s ease;
+}
+
+.food-item-name-rating img {
+  width: 72px;
+}
+
+.food-item-desc {
+  color: #cbd5e1;
+  font-size: 13.5px;
+  line-height: 1.55;
+  margin: 0 0 14px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+/* Price Tag */
+.food-item-price {
+  font-size: 21px;
+  font-weight: 800;
+  margin: 8px 0 0 0;
+  background: linear-gradient(90deg, #fde047 10%, #f472b6 55%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Pushable Cosmic Button */
+.food-item-info button {
+  margin-top: 12px;
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(251, 191, 36, 0.55);
+  border-bottom: 3.5px solid #6b21a8;
+  background: linear-gradient(135deg, rgba(126, 34, 206, 0.85), #1e1042);
+  color: #fde047;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.food-item-info button:active {
+  transform: translateY(2px);
+  border-bottom-width: 1px;
+}
+
+/* =========================================================
+   GPU-OPTIMIZED 3D MOTION KEYFRAMES
+   ========================================================= */
+
+@keyframes cosmicFloat {
+  0%, 100% {
+    transform: perspective(800px) translate3d(0, 0, 0) rotateX(0deg) rotateY(-1.5deg);
+  }
+  50% {
+    transform: perspective(800px) translate3d(0, -8px, 0) rotateX(2.5deg) rotateY(1.5deg);
+  }
+}
+
+@keyframes astroOrbitSpin {
+  0% {
+    transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
+}
+
+@keyframes cosmicSweep {
+  0%, 60% {
+    transform: translate3d(-220%, 0, 0) skewX(-25deg);
+  }
+  100% {
+    transform: translate3d(320%, 0, 0) skewX(-25deg);
+  }
+}
+
+/* =========================================================
+   MOBILE RESPONSIVE
+   ========================================================= */
+@media (max-width: 600px) {
+  .food-item {
+    border-radius: 18px;
+    animation: cosmicFloatMobile 5s ease-in-out infinite;
+  }
+
+  .food-item-image {
+    height: 175px;
+  }
+
+  .food-item-info {
+    padding: 16px;
+  }
+
+  .food-item-name-rating p {
+    font-size: 16.5px;
+  }
+
+  .food-item-price {
+    font-size: 19px;
+  }
+}
+
+@keyframes cosmicFloatMobile {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -5px, 0);
+  }
+}
+.food-display-list > * {
+  content-visibility: auto;
+  contain-intrinsic-size: 320px;
+}
+.food-item-top-actions {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.item-action-pill {
+  pointer-events: auto;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  background: rgba(2, 6, 23, 0.85);
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.item-action-pill.wishlisted {
+  border-color: #f43f5e;
+}
+
+.in-stock-tag {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  font-weight: 800;
+  color: #00ff88;
+  background: rgba(0, 255, 136, 0.12);
+  border: 1px solid rgba(0, 255, 136, 0.35);
+  padding: 2px 7px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.food-item-seller {
+  font-size: 12px;
+  color: #fde047;
+  font-weight: 600;
+  margin: 0 0 6px 0;
+}
+
+.food-item-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.quick-buy-btn {
+  padding: 6px 12px;
+  border-radius: 9px;
+  border: 1px solid #6ee7b7;
+  border-bottom: 2.5px solid #065f46;
+  background: linear-gradient(180deg, #00ff88, #059669);
+  color: #020617;
+  font-size: 11.5px;
+  font-weight: 800;
+  cursor: pointer;
+}

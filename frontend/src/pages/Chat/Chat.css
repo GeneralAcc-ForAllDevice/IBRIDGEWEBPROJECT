@@ -1,0 +1,560 @@
+/* 3D Sci-Fi Hacking & Cosmic Cyber-Comms Chat Terminal */
+.chat-page,
+.chat-page * {
+  box-sizing: border-box;
+}
+
+.chat-page {
+  max-width: 1120px;
+  margin: 30px auto;
+  padding: 0 20px;
+  font-family: 'Outfit', 'Segoe UI', sans-serif;
+  perspective: 1200px;
+}
+
+/* 3D Floating Comms Terminal Container */
+.chat-container {
+  display: flex;
+  height: 78vh;
+  min-height: 520px;
+  background: linear-gradient(165deg, rgba(15, 23, 42, 0.94) 0%, rgba(2, 6, 23, 0.98) 100%);
+  backdrop-filter: blur(20px);
+  border-radius: 22px;
+  border-top: 1.5px solid rgba(56, 189, 248, 0.6);
+  border-left: 1px solid rgba(56, 189, 248, 0.3);
+  border-right: 1px solid rgba(168, 85, 247, 0.3);
+  border-bottom: 5px solid #0369a1;
+  box-shadow: 
+    0 25px 55px rgba(0, 0, 0, 0.9),
+    0 0 35px rgba(56, 189, 248, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+}
+
+/* ဘယ်ဘက်ခြမ်း - 3D Cyber Contact Nodes Sidebar */
+.chat-sidebar {
+  width: 34%;
+  border-right: 1.5px solid rgba(56, 189, 248, 0.25);
+  display: flex;
+  flex-direction: column;
+  background: rgba(9, 13, 28, 0.85);
+}
+
+.chat-tabs {
+  display: flex;
+  background: rgba(2, 6, 23, 0.95);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.chat-tab-btn {
+  flex: 1;
+  padding: 14px 8px;
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #64748b;
+  cursor: pointer;
+  border-bottom: 2.5px solid transparent;
+  transition: all 0.25s ease;
+}
+
+.chat-tab-btn:hover {
+  color: #7dd3fc;
+}
+
+.chat-tab-btn.active {
+  color: #00ff88;
+  border-bottom-color: #00ff88;
+  background: linear-gradient(180deg, transparent, rgba(0, 255, 136, 0.12));
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.6);
+}
+
+.user-list-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-card-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.9));
+  border-radius: 14px;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-bottom: 3px solid #020617;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: all 0.25s ease;
+}
+
+.user-card-item.clickable {
+  cursor: pointer;
+}
+
+.user-card-item.clickable:hover,
+.user-card-item.selected {
+  border-color: #38bdf8;
+  border-bottom-color: #0284c7;
+  background: linear-gradient(90deg, rgba(56, 189, 248, 0.2), rgba(168, 85, 247, 0.15));
+  transform: translateX(3px);
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.3);
+}
+
+.user-card-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.user-card-info h4 {
+  margin: 0 0 3px 0;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #f1f5f9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-card-info small {
+  font-family: 'Courier New', monospace;
+  color: #38bdf8;
+  font-size: 11.5px;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn-add-fri,
+.btn-accept-fri {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.btn-add-fri {
+  background: linear-gradient(180deg, #38bdf8, #0284c7);
+  color: #020617;
+  border-bottom: 2px solid #075985;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+}
+
+.btn-accept-fri {
+  background: linear-gradient(180deg, #00ff88, #059669);
+  color: #020617;
+  border-bottom: 2px solid #065f46;
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.4);
+}
+
+.badge-status {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: #c084fc;
+  background: rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+/* ညာဘက်ခြမ်း - 3D Encrypted Chat Stream */
+.chat-main {
+  width: 66%;
+  display: flex;
+  flex-direction: column;
+  background: rgba(2, 6, 23, 0.65);
+}
+
+.chat-header {
+  padding: 14px 20px;
+  border-bottom: 1.5px solid rgba(56, 189, 248, 0.25);
+  background: linear-gradient(90deg, rgba(15, 23, 42, 0.95), rgba(19, 14, 46, 0.95));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.chat-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
+.mobile-back-btn {
+  display: none;
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  border-radius: 10px;
+  padding: 6px 12px;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.vc-call-btn {
+  background: linear-gradient(135deg, #0ea5e9, #2563eb);
+  color: #ffffff;
+  border: none;
+  border-bottom: 2.5px solid #1d4ed8;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 12.5px;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 0 12px rgba(14, 165, 233, 0.45);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 20;
+}
+
+.chat-messages-box {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background-color: #020617;
+  background-image: 
+    linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.msg-bubble {
+  max-width: 68%;
+  padding: 11px 16px;
+  border-radius: 16px;
+  font-size: 14.5px;
+  line-height: 1.48;
+  word-wrap: break-word;
+  word-break: break-word;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+}
+
+.msg-me {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #0284c7 0%, #7e22ce 100%);
+  color: #ffffff;
+  border: 1px solid rgba(125, 211, 252, 0.6);
+  border-bottom: 3px solid #4c1d95;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0 6px 18px rgba(126, 34, 206, 0.35);
+}
+
+.msg-other {
+  align-self: flex-start;
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+  color: #e2e8f0;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-bottom: 3px solid #020617;
+  border-bottom-left-radius: 4px;
+}
+
+.quick-emoji-bar {
+  display: flex;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(9, 13, 28, 0.95);
+  border-top: 1px solid rgba(56, 189, 248, 0.15);
+  overflow-x: auto;
+}
+
+.quick-emoji-btn {
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.chat-input-form {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-top: 1.5px solid rgba(56, 189, 248, 0.25);
+  background: rgba(15, 23, 42, 0.95);
+  gap: 10px;
+}
+
+.chat-input-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 11px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(56, 189, 248, 0.5);
+  background: #020617;
+  color: #38bdf8;
+  outline: none;
+  font-size: 14.5px;
+  box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.9);
+  transition: all 0.25s ease;
+}
+
+.chat-input-form input::placeholder {
+  color: #475569;
+}
+
+.chat-input-form input:focus {
+  border-color: #00ff88;
+  box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.9), 0 0 16px rgba(0, 255, 136, 0.4);
+}
+
+.chat-input-form button {
+  padding: 11px 22px;
+  border-radius: 14px;
+  border: 1px solid #6ee7b7;
+  border-bottom: 3px solid #065f46;
+  background: linear-gradient(180deg, #00ff88, #059669);
+  color: #020617;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: 0 6px 18px rgba(0, 255, 136, 0.35);
+}
+
+.chat-empty-state {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Courier New', monospace;
+  color: #38bdf8;
+  font-size: 14px;
+  text-align: center;
+  padding: 20px;
+}
+/* Video Call Overlay Screen */
+.vc-overlay-screen {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.96);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding: 16px;
+}
+
+.vc-active-wrapper {
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.vc-status-title {
+  margin: 0;
+  color: #38bdf8;
+  font-size: 16px;
+}
+
+.vc-video-stage {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  background: #0f172a;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid #38bdf8;
+}
+
+.vc-remote-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vc-local-pip {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  width: 135px;
+  height: 105px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 2px solid #fff;
+  background: #000;
+  transform: scaleX(-1);
+}
+
+.vc-controls-bar {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.vc-ctrl-btn {
+  background: #1e293b;
+  color: #f8fafc;
+  border: 1px solid #38bdf8;
+  padding: 10px 16px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.vc-ctrl-btn.off {
+  background: #475569;
+  border-color: #94a3b8;
+}
+
+.vc-end-btn {
+  background: #ef4444;
+  color: #ffffff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* =========================================
+   ဖုန်း (Mobile App Style) အတွက် သီးသန့်ညှိနှိုင်းချက်
+   ========================================= */
+@media (max-width: 768px) {
+  .chat-page {
+    margin: 10px auto;
+    padding: 0 8px;
+  }
+
+  .chat-container {
+    height: calc(100dvh - 115px);
+    min-height: 460px;
+    border-radius: 16px;
+  }
+
+  /* ဖုန်းတွင် လူစာရင်းနှင့် Chat Box ကို တစ်လှည့်စီ Screen အပြည့်ပြသခြင်း */
+  .chat-container .chat-sidebar {
+    width: 100% !important;
+    height: 100% !important;
+    border-right: none !important;
+    border-bottom: none !important;
+  }
+
+  .chat-container .chat-main {
+    display: none !important;
+  }
+
+  .chat-container.mobile-chat-open .chat-sidebar {
+    display: none !important;
+  }
+
+  .chat-container.mobile-chat-open .chat-main {
+    display: flex !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .mobile-back-btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .view-profile-tag {
+    display: none !important;
+  }
+
+  .chat-header {
+    padding: 8px 10px !important;
+    gap: 8px !important;
+  }
+
+  .chat-friend-name {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+  }
+
+  .vc-call-btn {
+    padding: 7px 12px !important;
+    font-size: 12px !important;
+    min-height: 36px;
+  }
+
+  .chat-messages-box {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .msg-bubble {
+    max-width: 84%;
+    padding: 9px 13px;
+    font-size: 13.5px;
+  }
+
+  .chat-input-form {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .chat-input-form input {
+    padding: 9px 12px;
+    font-size: 16px !important;
+  }
+
+  .chat-input-form button {
+    padding: 9px 14px;
+    font-size: 12px;
+  }
+
+  /* ဖုန်း Video Call Screen အပြည့် */
+  .vc-active-wrapper {
+    height: 100%;
+    justify-content: space-between;
+  }
+
+  .vc-video-stage {
+    height: 68dvh !important;
+  }
+
+  .vc-local-pip {
+    width: 92px !important;
+    height: 128px !important;
+    bottom: 10px !important;
+    right: 10px !important;
+  }
+}

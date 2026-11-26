@@ -1,0 +1,24 @@
+/* =========================================
+   ALL BACKGROUND & MOTION ANIMATIONS DISABLED (ZERO-LAG)
+   ========================================= */
+body {
+  background-color: #030712 !important;
+  background-image: radial-gradient(circle at 50% 0%, #0f172a 0%, #030712 80%) !important;
+  background-attachment: scroll !important;
+}
+
+/* Footer နှင့် တစ်ခြားနေရာများမှ Motion Animation အားလုံးကို ဖြုတ်ချခြင်း */
+.footer::before,
+.footer-content-left,
+.footer-content-center,
+.footer-content-right,
+.footer-content-left img[alt="IBRIDGE Logo"] {
+  animation: none !important;
+  transform: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.footer {
+  perspective: none !important;
+}

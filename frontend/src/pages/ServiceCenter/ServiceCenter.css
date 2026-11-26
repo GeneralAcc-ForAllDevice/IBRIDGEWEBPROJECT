@@ -1,0 +1,225 @@
+.srv-page,
+.srv-page * {
+  box-sizing: border-box;
+}
+
+.srv-page {
+  max-width: 1080px;
+  margin: 28px auto;
+  padding: 0 18px 90px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #f8fafc;
+  position: relative;
+  z-index: 5;
+  perspective: 1200px;
+}
+
+/* 1. Precision Lab Hero Banner */
+.srv-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.85) 0%, rgba(9, 13, 24, 0.95) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-bottom: 2px solid rgba(56, 189, 248, 0.5);
+  border-radius: 20px;
+  padding: 30px 26px;
+  margin-bottom: 24px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.75);
+}
+
+.srv-hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.08), transparent);
+  transform: skewX(-20deg);
+  animation: labSweep 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes labSweep {
+  0%, 100% { left: -100%; }
+  50% { left: 150%; }
+}
+
+.srv-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 5px 12px;
+  border-radius: 50px;
+  margin-bottom: 12px;
+}
+
+.srv-hero h1 {
+  margin: 0 0 8px 0;
+  font-size: 25px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.srv-hero p {
+  margin: 0;
+  font-size: 14px;
+  color: #94a3b8;
+  max-width: 660px;
+  line-height: 1.6;
+}
+
+.srv-hero p strong {
+  color: #38bdf8;
+}
+
+/* 2. 3D Floating Tracker Box */
+.srv-tracker-card {
+  background: rgba(15, 23, 42, 0.78);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 20px;
+  padding: 26px;
+  margin-bottom: 26px;
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.8);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.srv-tracker-card:hover {
+  border-color: rgba(56, 189, 248, 0.55);
+}
+
+.srv-tracker-card h3 {
+  margin: 0 0 14px 0;
+  font-size: 17px;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+.srv-track-form {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.srv-track-input {
+  flex: 1;
+  min-width: 220px;
+  padding: 13px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(2, 6, 23, 0.85);
+  color: #ffffff;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.srv-track-input::placeholder {
+  color: #64748b;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.srv-track-input:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+}
+
+.srv-track-btn {
+  padding: 13px 26px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+  color: #020617;
+  font-weight: 800;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.srv-track-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.4);
+}
+
+/* 3. Clean Result Card */
+.srv-track-result {
+  margin-top: 22px !important;
+  background: #0b1120 !important;
+  border: 1px solid rgba(56, 189, 248, 0.35) !important;
+  border-radius: 16px !important;
+  padding: 22px !important;
+  color: #f8fafc !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.75);
+  animation: resultPop3D 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes resultPop3D {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.srv-track-result h2 {
+  color: #ffffff !important;
+}
+
+.srv-track-result > div {
+  color: #cbd5e1 !important;
+}
+
+/* Technician Contact Box Inside Result */
+.srv-track-result > div:last-child {
+  background: rgba(15, 23, 42, 0.9) !important;
+  border: 1px solid rgba(148, 163, 184, 0.2) !important;
+}
+
+.srv-track-result > div:last-child strong {
+  color: #ffffff !important;
+}
+
+/* =========================================
+   Mobile Responsive
+   ========================================= */
+@media (max-width: 768px) {
+  .srv-page {
+    padding: 0 12px 95px;
+    margin: 14px auto;
+  }
+
+  .srv-hero {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .srv-hero h1 {
+    font-size: 20px;
+  }
+
+  .srv-tracker-card {
+    padding: 18px 16px;
+  }
+
+  .srv-track-input {
+    font-size: 16px;
+  }
+
+  .srv-track-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -1,0 +1,240 @@
+.explore-menu.dragon-explore-section {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 26px 0 12px;
+  font-family: 'Inter', 'Outfit', sans-serif;
+  position: relative;
+  z-index: 10;
+  perspective: 1200px;
+}
+
+.explore-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.dragon-sub-tag {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #38bdf8;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.explore-menu h1 {
+  margin: 0 0 6px 0;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+.explore-menu-text {
+  margin: 0;
+  max-width: 740px;
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.explore-status-pill {
+  font-size: 11px;
+  font-weight: 800;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  padding: 5px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* Grid & Horizontal Layout */
+.explore-menu-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(124px, 1fr));
+  gap: 16px;
+  padding: 12px 4px;
+  transform-style: preserve-3d;
+}
+
+/* 3D Floating & Moving Dragon Scale Card */
+.explore-card.dragon-card {
+  position: relative;
+  background: linear-gradient(160deg, rgba(15, 23, 42, 0.82) 0%, rgba(5, 9, 20, 0.94) 100%);
+  border-top: 1.5px solid rgba(125, 211, 252, 0.45);
+  border-left: 1px solid rgba(56, 189, 248, 0.25);
+  border-right: 1px solid rgba(99, 102, 241, 0.25);
+  border-bottom: 3.5px solid #0284c7;
+  border-radius: 16px 4px 16px 4px; /* Dragon Scale Asymmetric Cut */
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.75);
+  will-change: transform;
+  animation: dragonSpineFloat 4.2s ease-in-out infinite;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* နဂါးကျောရိုးဆစ်ကဲ့သို့ 3D လှိုင်းတွန့် လွင့်မျောနေစေမည့် Animation (GPU 60fps) */
+@keyframes dragonSpineFloat {
+  0%, 100% {
+    transform: translate3d(0, 0px, 0) rotateY(-2deg) rotateX(0deg);
+  }
+  50% {
+    transform: translate3d(0, -7px, 0) rotateY(2deg) rotateX(2deg);
+  }
+}
+
+/* Dragon Claw Corner Accents */
+.dragon-claw-tl,
+.dragon-claw-br {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+.dragon-claw-tl {
+  top: 4px;
+  left: 4px;
+  border-top: 2px solid #38bdf8;
+  border-left: 2px solid #38bdf8;
+  border-top-left-radius: 6px;
+}
+
+.dragon-claw-br {
+  bottom: 4px;
+  right: 4px;
+  border-bottom: 2px solid #38bdf8;
+  border-right: 2px solid #38bdf8;
+  border-bottom-right-radius: 6px;
+}
+
+/* Hover Effect */
+.explore-card.dragon-card:hover {
+  border-top-color: #bae6fd;
+  border-bottom-color: #38bdf8;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.9), 0 0 22px rgba(56, 189, 248, 0.35);
+}
+
+/* Active Selected State (Dragon Plasma Glow) */
+.explore-card.dragon-card.active {
+  background: linear-gradient(160deg, rgba(2, 132, 199, 0.35) 0%, rgba(15, 23, 42, 0.95) 100%);
+  border-top-color: #e0f2fe;
+  border-bottom: 4px solid #38bdf8;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.9), 0 0 26px rgba(56, 189, 248, 0.5);
+}
+
+.explore-card.dragon-card.active .dragon-claw-tl,
+.explore-card.dragon-card.active .dragon-claw-br {
+  border-color: #ffffff;
+  width: 14px;
+  height: 14px;
+}
+
+.explore-card-img-box {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px 4px 12px 4px;
+  background: #020617;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.explore-card-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.explore-card-img-box.all-box {
+  background: linear-gradient(135deg, #0284c7, #38bdf8);
+  color: #020617;
+  font-weight: 900;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.explore-card p {
+  margin: 0;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #cbd5e1;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.explore-card:hover p,
+.explore-card.active p {
+  color: #ffffff;
+}
+
+.explore-menu hr {
+  margin: 8px 0 0;
+  height: 1px;
+  border: none;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.5), transparent);
+}
+
+/* =========================================
+   ဖုန်း (Mobile View) - 60fps Smooth Swipe
+   ========================================= */
+@media (max-width: 768px) {
+  .explore-menu.dragon-explore-section {
+    padding: 14px 0 6px;
+    gap: 12px;
+  }
+
+  .explore-status-pill {
+    display: none;
+  }
+
+  .explore-menu h1 {
+    font-size: 18px;
+  }
+
+  .explore-menu-text {
+    font-size: 12.5px;
+  }
+
+  .explore-menu-list {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 6px 2px 10px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .explore-menu-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .explore-card.dragon-card {
+    min-width: 96px;
+    padding: 10px 8px;
+    flex-shrink: 0;
+    animation: none !important; /* ဖုန်းတွင် ဘေးတိုက်ဆွဲရတာ ညက်ညောစေရန် */
+  }
+
+  .explore-card-img-box {
+    width: 52px;
+    height: 52px;
+  }
+
+  .explore-card p {
+    font-size: 11.5px;
+  }
+}

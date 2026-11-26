@@ -1,0 +1,35 @@
+.verify {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-family: 'Outfit', sans-serif;
+}
+
+.verify .spinner {
+  width: 65px;
+  height: 65px;
+  border: 5px solid #ffe5df;
+  border-top-color: #ff4c24;
+  border-radius: 50%;
+  animation: rotateSpinner 0.9s linear infinite;
+  box-shadow: 0 4px 15px rgba(255, 76, 36, 0.15);
+}
+
+.verify p {
+  font-size: 16px;
+  font-weight: 500;
+  color: #4b5563;
+  letter-spacing: 0.3px;
+}
+
+@keyframes rotateSpinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,230 @@
+/* 3D Sci-Fi Astrology & Psycho Cosmic Place Order Page */
+.place-order {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1120px;
+  margin: 45px auto;
+  padding: 0 20px;
+  font-family: 'Outfit', 'Segoe UI', sans-serif;
+  perspective: 1200px;
+}
+
+/* ဘယ်ဘက်ခြမ်း - 3D Astral Delivery Information Portal */
+.place-order-left {
+  position: relative;
+  width: 100%;
+  max-width: 570px;
+  background: linear-gradient(
+    165deg,
+    rgba(19, 14, 46, 0.92) 0%,
+    rgba(6, 5, 22, 0.96) 100%
+  );
+  backdrop-filter: blur(18px);
+  padding: 32px;
+  border-radius: 22px;
+  border-top: 1.5px solid rgba(168, 85, 247, 0.65);
+  border-left: 1px solid rgba(56, 189, 248, 0.3);
+  border-right: 1px solid rgba(236, 72, 153, 0.3);
+  border-bottom: 5px solid #6b21a8; /* 3D အောက်ခြေ အထူသား */
+  box-shadow: 
+    0 22px 50px rgba(0, 0, 0, 0.85),
+    0 0 35px rgba(168, 85, 247, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.15);
+}
+
+.place-order-left::before {
+  content: "✦ COORDINATES_TRANSMISSION // DELIVERY_NODE ✦";
+  display: block;
+  font-family: 'Courier New', monospace;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  color: #c084fc;
+  text-shadow: 0 0 8px rgba(192, 132, 252, 0.7);
+  margin-bottom: 10px;
+}
+
+.place-order-left .title {
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 0 24px 0;
+  padding-bottom: 12px;
+  background: linear-gradient(90deg, #38bdf8, #c084fc, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-bottom: 1.5px solid rgba(168, 85, 247, 0.35);
+}
+
+/* 3D Recessed Cyber Input & Textarea */
+.place-order-left input,
+.place-order-left textarea {
+  margin-bottom: 18px;
+  width: 100%;
+  padding: 13px 16px;
+  border: 1px solid rgba(168, 85, 247, 0.45);
+  border-radius: 12px;
+  outline: none;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: #f1f5f9;
+  background: #050414;
+  font-family: inherit;
+  box-sizing: border-box;
+  /* အတွင်းဘက် ချိုင့်ဝင်နေတဲ့ 3D အရိပ် */
+  box-shadow: 
+    inset 0 4px 10px rgba(0, 0, 0, 0.9),
+    0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.place-order-left input::placeholder,
+.place-order-left textarea::placeholder {
+  color: #64748b;
+}
+
+.place-order-left textarea {
+  resize: vertical;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.place-order-left input:focus,
+.place-order-left textarea:focus {
+  border-color: #ec4899;
+  background: #090720;
+  box-shadow: 
+    inset 0 4px 10px rgba(0, 0, 0, 0.9),
+    0 0 18px rgba(236, 72, 153, 0.45),
+    0 0 8px rgba(168, 85, 247, 0.4);
+}
+/* ညာဘက်ခြမ်း - 3D Cosmic Cart Totals Card */
+.place-order-right {
+  width: 100%;
+  max-width: 440px;
+  background: linear-gradient(
+    165deg,
+    rgba(19, 14, 46, 0.92) 0%,
+    rgba(6, 5, 22, 0.96) 100%
+  );
+  backdrop-filter: blur(18px);
+  padding: 32px;
+  border-radius: 22px;
+  border-top: 1.5px solid rgba(56, 189, 248, 0.65);
+  border-left: 1px solid rgba(168, 85, 247, 0.3);
+  border-right: 1px solid rgba(168, 85, 247, 0.3);
+  border-bottom: 5px solid #0369a1;
+  box-shadow: 
+    0 22px 50px rgba(0, 0, 0, 0.85),
+    0 0 35px rgba(56, 189, 248, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.15);
+  position: sticky;
+  top: 105px;
+}
+
+.place-order-right .cart-total {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: transparent;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.place-order-right .cart-total h2 {
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 0 6px 0;
+  padding-bottom: 12px;
+  background: linear-gradient(90deg, #38bdf8, #c084fc, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-bottom: 1.5px solid rgba(56, 189, 248, 0.35);
+}
+
+.place-order-right .cart-total-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #cbd5e1;
+  font-size: 15.5px;
+  padding: 6px 0;
+}
+
+.place-order-right .cart-total-details b {
+  color: #38bdf8;
+  font-size: 19px;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+}
+
+.place-order-right .cart-total hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.5), transparent);
+  margin: 4px 0;
+}
+
+/* 3D Psycho-Astral Payment Button */
+.place-order .cart-total button {
+  margin-top: 14px;
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #f5d0fe;
+  border-bottom: 4px solid #701a75;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #9333ea 0%, #ec4899 50%, #3b82f6 100%);
+  color: #ffffff;
+  font-size: 14.5px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 
+    0 10px 25px rgba(168, 85, 247, 0.45),
+    inset 0 2px 2px rgba(255, 255, 255, 0.4);
+}
+
+.place-order .cart-total button:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 14px 32px rgba(236, 72, 153, 0.65),
+    0 0 20px rgba(168, 85, 247, 0.6);
+}
+
+.place-order .cart-total button:active {
+  transform: translateY(2px);
+  border-bottom-width: 1px;
+}
+
+/* Tablet & Mobile Responsive */
+@media (max-width: 850px) {
+  .place-order {
+    flex-direction: column;
+    gap: 26px;
+    margin: 25px auto;
+    padding: 0 12px;
+  }
+  .place-order-left,
+  .place-order-right {
+    max-width: 100%;
+    position: static;
+  }
+}
+
+@media (max-width: 500px) {
+  .place-order-left,
+  .place-order-right {
+    padding: 20px 16px;
+    border-radius: 18px;
+  }
+  .place-order-left .title {
+    font-size: 19px;
+  }
+}
